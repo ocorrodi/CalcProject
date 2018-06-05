@@ -17,8 +17,8 @@ class DataViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var text3: UITextView!
     @IBOutlet weak var image3: UIImageView!
-    var dataObject: Topic = Topic(name: "", problems: [:], hints: [], notes: "", image: "")
-    var index = 0;
+    var dataObject: Topic = Topic(name: "", problems: [:], hints: [], notes: "", image: "", answers: [])
+    var index = 0
     @IBAction func hints2(_ sender: Any) {
         performSegue(withIdentifier: "hints", sender: self)
     }
@@ -34,6 +34,7 @@ class DataViewController: UIViewController {
         else {
             let destinationVC = segue.destination as! HintsViewController
             destinationVC.hints2 = dataObject.hints
+            destinationVC.index = index
         }
     }
     override func viewDidLoad() {
